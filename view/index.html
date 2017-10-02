@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JSminer</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/master.css">
+    <style media="screen">
+    body, body * {
+      overflow-x: hidden;
+      font-family: 'Roboto', sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background-color: #a6a6a6;
+    }
+
+    header{
+      background-color: #424242;
+      width: 100vw;
+      height: 20vh;
+    }
+
+    header h1{
+      font-size: 50px;
+      line-height: 20vh;
+      color: #212121;
+      padding-left: 20px;
+    }
+
+    main {
+      background-color: #757575;
+      width: 100vw;
+      height: auto;
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+     .block {
+      height: 200px;
+      color: #212121;
+      width: 20vw;
+      padding: 20px;
+      box-sizing: border-box;
+      font-size: 20px;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      flex: 1 1 25%;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>JSminer</h1>
+    </header>
+
+    <main id="main">
+
+    </main>
+
+  </body>
+  <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+  <script>
+
+  var div,
+      li1,
+      li2,
+      li3,
+      list,
+      Hps,
+      tH,
+      aH,
+      i = 1,
+      num,
+      textarr = [];
+
+  //   var miner = new CoinHive.anonymous('key');
+  //   miner.start()
+  //
+  //   setInterval(function() {
+	// 	 Hps = miner.getHashesPerSecond();
+	// 	 tH = miner.getTotalHashes();
+	// 	 aH = miner.getAcceptedHashes();
+  //
+  //    createDiv(Hps+i, tH, aH, i);
+  //    i++
+  //
+	// }, 5000);
+
+    setInterval(function(){
+      Hps = Math.floor(Math.random()*10000);
+      tH = Math.floor(Math.random()*1000);
+      aH = Math.floor(Math.random()*1000);
+
+      createDiv(Hps, tH, aH, i);
+      i++
+      window.scrollBy(0, 300)
+    }, 1000)
+
+    function createDiv(Hps, tH, aH, index) {
+         num = document.createTextNode('#' + index)
+         div = document.createElement("DIV");
+         div.appendChild(num);
+         list = document.createElement('UL');
+         li1 = document.createElement('LI');
+         li2 = document.createElement('LI');
+         li3 = document.createElement('LI');
+         textarr = [document.createTextNode('hashPerSecond: ' + Hps), document.createTextNode('totalHashes: ' + tH), document.createTextNode('acceptedHashes: ' + aH)]
+
+
+         li1.appendChild(textarr[0]);
+         list.appendChild(li1);
+
+         li2.appendChild(textarr[1]);
+         list.appendChild(li2)
+
+         li3.appendChild(textarr[2]);
+         list.appendChild(li3)
+
+
+         div.className = "block";
+         div.appendChild(list);
+         document.getElementById('main').appendChild(div);
+      }
+
+  </script>
+</html>
