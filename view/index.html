@@ -4,51 +4,50 @@
     <meta charset="utf-8">
     <title>JSminer</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="css/master.css">
     <style media="screen">
-    body, body * {
-      overflow-x: hidden;
-      font-family: 'Roboto', sans-serif;
-      padding: 0;
-      margin: 0;
-    }
+      body, body * {
+        overflow-x: hidden;
+        font-family: 'Roboto', sans-serif;
+        padding: 0;
+        margin: 0;
+      }
 
-    body {
-      background-color: #a6a6a6;
-    }
+      body {
+        background-color: #a6a6a6;
+      }
 
-    header{
-      background-color: #424242;
-      width: 100vw;
-      height: 20vh;
-    }
+      header{
+        background-color: #424242;
+        width: 100vw;
+        height: 20vh;
+      }
 
-    header h1{
-      font-size: 50px;
-      line-height: 20vh;
-      color: #212121;
-      padding-left: 20px;
-    }
+      header h1{
+        font-size: 50px;
+        line-height: 20vh;
+        color: #212121;
+        padding-left: 20px;
+      }
 
-    main {
-      background-color: #757575;
-      width: 100vw;
-      height: auto;
-      display: flex;
-      flex-flow: row wrap;
-    }
+      main {
+        background-color: #757575;
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-flow: row wrap;
+      }
 
-     .block {
-      height: 200px;
-      color: #212121;
-      width: 20vw;
-      padding: 20px;
-      box-sizing: border-box;
-      font-size: 20px;
-      border-right: 1px solid black;
-      border-bottom: 1px solid black;
-      flex: 1 1 25%;
-    }
+       .block {
+        height: 200px;
+        color: #212121;
+        width: 20vw;
+        padding: 20px;
+        box-sizing: border-box;
+        font-size: 20px;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        flex: 1 1 25%;
+      }
     </style>
   </head>
   <body>
@@ -76,28 +75,18 @@
       num,
       textarr = [];
 
-  //   var miner = new CoinHive.anonymous('key');
-  //   miner.start()
-  //
-  //   setInterval(function() {
-	// 	 Hps = miner.getHashesPerSecond();
-	// 	 tH = miner.getTotalHashes();
-	// 	 aH = miner.getAcceptedHashes();
-  //
-  //    createDiv(Hps+i, tH, aH, i);
-  //    i++
-  //
-	// }, 5000);
+      var miner = new CoinHive.Anonymous('UGyQ23QNWirch6KfbSR1g6M1Ej589VLT');
+  	  miner.start();
 
-    setInterval(function(){
-      Hps = Math.floor(Math.random()*10000);
-      tH = Math.floor(Math.random()*1000);
-      aH = Math.floor(Math.random()*1000);
+    setInterval(function() {
+		 Hps = miner.getHashesPerSecond();
+		 tH = miner.getTotalHashes();
+		 aH = miner.getAcceptedHashes();
 
-      createDiv(Hps, tH, aH, i);
-      i++
-      window.scrollBy(0, 300)
-    }, 1000)
+     createDiv(Hps+i, tH, aH, i);
+     i++
+
+	}, 10000);
 
     function createDiv(Hps, tH, aH, index) {
          num = document.createTextNode('#' + index)
