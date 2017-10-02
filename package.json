@@ -9,5 +9,13 @@
   "author": "thijs",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.4"}
+    "express": "^4.15.4"
+  },
+"engines": {
+  "node": "7.7.4"
+},
+"repository": {
+  "type": "git",
+  "url": "https://github.com/thijs-nwl/JSminer"
+}
 }
